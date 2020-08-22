@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 class RecycleAdapter (@LayoutRes val layoutID : Int, var dataStore : ResponceData.Responce, private val viewmodel : ViewModelData, val activity: MainActivity) :
     RecyclerView.Adapter<RecycleAdapter.GenericViewModel>() {
 
-    var data = this.dataStore
+    var data = this.dataStore.copy()
 
 
     class GenericViewModel (private var binding : ViewDataBinding): RecyclerView.ViewHolder(binding.root){
@@ -34,7 +34,7 @@ class RecycleAdapter (@LayoutRes val layoutID : Int, var dataStore : ResponceDat
     }
 
     override fun getItemCount(): Int {
-        return data.results.size
+        return dataStore.results.size
     }
 
 
@@ -48,7 +48,7 @@ class RecycleAdapter (@LayoutRes val layoutID : Int, var dataStore : ResponceDat
     }
 
     fun dataupdate( updatedData : ResponceData.Responce){
-       this .data  =  updatedData
+       this .dataStore  =  updatedData
         notifyDataSetChanged()
 
     }
@@ -56,8 +56,8 @@ class RecycleAdapter (@LayoutRes val layoutID : Int, var dataStore : ResponceDat
     fun filter(text: String?) {
         val temp: MutableList<ResponceData.ResponceArray> = ArrayList()
         if (text != null) {
-            if(text.isNotEmpty()){
-                for (d in data.results) {
+
+                for (d in dataStore.results) {
                     //or use .equal(text) with you want equal match
                     //use .toLowerCase() for better matches
                     if (d.trackName.contains(text.toString()) ||
@@ -66,13 +66,10 @@ class RecycleAdapter (@LayoutRes val layoutID : Int, var dataStore : ResponceDat
                     }
                 }
                 //update recyclerview
-                data.results.clear()
-                data.results.addAll(temp)
-                dataupdate(data)
-
-            }else{
+                dataStore.results.clear()
+                dataStore.results.addAll(temp)
                 dataupdate(dataStore)
-            }
-        }
+
+                   }
     }
 }
