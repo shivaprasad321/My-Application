@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+        <variable
+            name = "itemviewModel"
+            type = "com.shivaprasad.myapplication.ViewModelData"/>
+        <variable
+            name="layoutposision"
+            type="Integer" />
+        <variable
+            name="activity"
+            type="com.shivaprasad.myapplication.MainActivity" />
+    </data>
+
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:layout_margin="5dp"
+    android:padding="5dp"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="80dp"
+        load_image="@{itemviewModel.setListpositionvalue(layoutposision).artworkUrl100}"
+        context="@{activity}"
+        android:layout_centerVertical="true"
+        android:layout_height="130dp"/>
+
+    <CheckBox
+        android:layout_width="30dp"
+        android:button="@drawable/checkcart"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp"
+        android:checked="@{itemviewModel.setCheck(layoutposision)}"
+        android:layout_marginEnd="10dp"
+        android:layout_height="30dp"/>
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_toRightOf="@+id/img"
+        android:layout_marginStart="10dp"
+        android:layout_height="wrap_content">
+
+
+    <TextView
+        android:id="@+id/artistname"
+        android:layout_width="wrap_content"
+        android:text="Artistname :"
+        android:textSize="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:textColor="@color/black"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@{itemviewModel.setListpositionvalue(layoutposision).artistName}"
+        android:textSize="15dp"
+        android:layout_marginStart="10dp"
+        android:layout_toEndOf="@+id/artistname"
+        android:textColor="@color/black"
+        android:layout_height="wrap_content"/>
+
+
+
+    <TextView
+        android:id="@+id/trackname"
+        android:layout_width="wrap_content"
+        android:text="Trackname :"
+        android:textSize="15dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/artistname"
+        android:textColor="@color/black"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="@{itemviewModel.setListpositionvalue(layoutposision).trackName}"
+        android:textSize="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/artistname"
+        android:layout_marginStart="10dp"
+        android:layout_toEndOf="@+id/trackname"
+        android:textColor="@color/black"
+        android:layout_height="wrap_content"/>
+
+
+    <TextView
+        android:id="@+id/collectionname"
+        android:layout_width="wrap_content"
+        android:text="Collectionname :"
+        android:layout_below="@+id/trackname"
+        android:textSize="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:textColor="@color/black"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="@{itemviewModel.setListpositionvalue(layoutposision).collectionName}"
+        android:textSize="15dp"
+        android:layout_below="@+id/trackname"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_toEndOf="@+id/collectionname"
+        android:textColor="@color/black"
+        android:layout_height="wrap_content"/>
+
+
+    <TextView
+        android:id="@+id/collectionprice"
+        android:layout_width="wrap_content"
+        android:text="Collectionprice :"
+        android:textSize="15dp"
+        android:layout_below="@+id/collectionname"
+        android:layout_marginTop="10dp"
+
+        android:layout_marginEnd="10dp"
+        android:textColor="@color/black"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="@{itemviewModel.setListpositionvalue(layoutposision).collectionPrice}"
+        android:textSize="15dp"
+        android:layout_below="@+id/collectionname"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_toEndOf="@+id/collectionprice"
+        android:textColor="@color/black"
+        android:layout_height="wrap_content"/>
+
+
+    <TextView
+        android:id="@+id/releasdate"
+        android:layout_width="wrap_content"
+        android:text="Releasedate :"
+        android:textSize="15dp"
+        android:layout_below="@+id/collectionprice"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:textColor="@color/black"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="@{itemviewModel.setListpositionvalue(layoutposision).releaseDate}"
+        android:textSize="15dp"
+        android:layout_below="@+id/collectionprice"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_toEndOf="@+id/releasdate"
+        android:textColor="@color/black"
+        android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
+
+</RelativeLayout>
+</layout>
