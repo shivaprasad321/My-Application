@@ -1,6 +1,8 @@
 package com.shivaprasad.myapplication
 
 import android.app.Activity
+import android.widget.CheckBox
+import android.widget.CompoundButton
 import android.widget.ImageView
 import android.widget.SearchView
 import androidx.databinding.BindingAdapter
@@ -31,5 +33,12 @@ fun loadImage(view: ImageView, url:String,activity: Activity){
 fun loadQuerytext(view : SearchView, querytext: SearchView.OnQueryTextListener){
 
     view.setOnQueryTextListener(querytext)
+
+}
+
+@BindingAdapter("onCheckedChangeListner")
+fun checkchnaged(view : CheckBox, onCheckedChangeListener: CompoundButton.OnCheckedChangeListener){
+
+    view.setOnCheckedChangeListener(onCheckedChangeListener)
 
 }

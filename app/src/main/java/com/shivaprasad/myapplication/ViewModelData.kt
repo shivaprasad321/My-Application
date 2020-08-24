@@ -1,6 +1,8 @@
 package com.shivaprasad.myapplication
 
 import android.util.Log
+import android.widget.CompoundButton
+import android.widget.RadioGroup
 import android.widget.SearchView
 import androidx.lifecycle.ViewModel
 import com.shivaprasad.myapplication.ResponceData.Responce
@@ -24,16 +26,16 @@ class ViewModelData(val api: API, val repository: Repository, val activity: Main
         return adapter
     }
 
+      fun getCheck(position: Int){
+
+          employessDataFromServer.results[position].slected = !employessDataFromServer.results[position].slected
+
+    }
+
+
     fun setCheck(position: Int):Boolean{
 
-        return  if(employessDataFromServer.results[position].slected){
-
-            employessDataFromServer.results[position].slected = false
-            false
-        }else{
-            employessDataFromServer.results[position].slected = true
-            true
-        }
+        return !employessDataFromServer.results[position].slected
 
     }
 
@@ -86,5 +88,19 @@ class ViewModelData(val api: API, val repository: Repository, val activity: Main
         }
     }
 
+  /*  val onCheckedChangeListener =
+        CompoundButton.OnCheckedChangeListener { buttonView, isChecked ->
+
+
+            if(employessDataFromServer.results[position].slected){
+
+                employessDataFromServer.results[position].slected = false
+                false
+            }else{
+                employessDataFromServer.results[position].slected = true
+                true
+            }
+        }
+*/
 
 }

@@ -24,6 +24,7 @@
     android:orientation="vertical"
     android:background="@color/white"
     android:layout_margin="5dp"
+
     android:padding="5dp"
     android:layout_height="wrap_content">
 
@@ -40,6 +41,7 @@
         android:button="@drawable/checkcart"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="10dp"
+        android:onClick="@{()->itemviewModel.getCheck(layoutposision)}"
         android:checked="@{itemviewModel.setCheck(layoutposision)}"
         android:layout_marginEnd="10dp"
         android:layout_height="30dp"/>
