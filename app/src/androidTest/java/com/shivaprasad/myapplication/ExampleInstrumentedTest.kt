@@ -62,4 +62,5 @@ class ExampleInstrumentedTest {
         //cart
         onView(withId(R.id.cart)).perform(ViewActions.click())
     }
+
 }
