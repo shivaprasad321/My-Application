@@ -45,7 +45,6 @@ class ExampleInstrumentedTest {
         //textfilter
         onView(withId(R.id.search_icon)).perform(click())
         onView(withId(R.id.search_icon)).perform(click())
-        onView(withId(R.id.search_icon)).perform(click())
     }
 
 
