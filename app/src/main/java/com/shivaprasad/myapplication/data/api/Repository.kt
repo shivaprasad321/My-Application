@@ -1,5 +1,7 @@
-package com.shivaprasad.myapplication
+package com.shivaprasad.myapplication.data.api
 
+import com.shivaprasad.myapplication.data.api.API
+import com.shivaprasad.myapplication.data.model.ResponceData
 import retrofit2.Response
 
 class Repository(var api : API) {

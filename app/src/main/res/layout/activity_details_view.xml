@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.shivaprasad.myapplication.data.model.ResponceData.ResponceArray" />
+
+        <variable
+            name="activity"
+            type="com.shivaprasad.myapplication.ui.detail.DetailsViewActivity" />
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Activitys.DetailScreen">
+
+        <ImageView
+            android:layout_width="match_parent"
+            load_image="@{data.artworkUrl100}"
+            context="@{activity}"
+            android:layout_height="match_parent"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:background="@drawable/card_gradient"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/back_icon"
+                android:layout_width="42dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="14dp"
+                android:src="@drawable/ic_arrow"
+                android:layout_marginStart="14dp"
+                android:padding="10dp"
+                android:onClick="@{()->activity.onClick()}"
+                android:background="@drawable/circledrawable"
+                android:layout_height="42dp"/>
+
+            <TextView
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/artist_track"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:id="@+id/tv_title"
+                android:text='@{data.collectionName,default = "Tha Breakfast"}'
+                android:textColor="@color/white"
+                android:layout_marginStart="@dimen/_24dp"
+                android:layout_marginEnd="@dimen/_24dp"
+                android:layout_marginRight="@dimen/_24dp"
+                android:layout_marginLeft="@dimen/_24dp"
+                android:textSize="@dimen/_29sp"
+                android:layout_marginBottom="@dimen/_64dp"
+                android:fontFamily="@font/roboto_slab_bold"
+                android:layout_height="wrap_content"/>
+
+
+            <TextView
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/tv_date"
+                android:layout_marginTop="@dimen/_10dp"
+                android:layout_width="match_parent"
+                android:id="@+id/artist_track"
+
+                android:singleLine="true"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit ="marquee_forever"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:scrollHorizontally="true"
+
+                android:text='@{data.artistName+" - "+data.trackName,default = "John Hughes - The Breakfast Club"}'
+                android:textColor="@color/lightdarkwhite"
+                android:textSize="@dimen/_20sp"
+                android:layout_marginBottom="@dimen/_16dp"
+                android:fontFamily="@font/roboto_slab_regular"
+                android:layout_marginStart="@dimen/_24dp"
+                android:layout_marginEnd="@dimen/_24dp"
+                android:layout_marginRight="@dimen/_24dp"
+                android:layout_marginLeft="@dimen/_24dp"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_width="wrap_content"
+                android:id="@+id/tv_date"
+                android:text='@{activity.dateUpdate(data.releaseDate),default = "2019-07-03"}'
+                android:textColor="@color/lightdarkwhite"
+                android:textSize="@dimen/_20sp"
+                android:layout_marginBottom="@dimen/_16dp"
+                android:fontFamily="@font/roboto_slab_regular"
+                android:layout_marginStart="@dimen/_24dp"
+                android:layout_marginEnd="@dimen/_24dp"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_width="wrap_content"
+                android:ellipsize="end"
+                android:id="@+id/tv_channelname"
+                android:text='@{"$ "+data.collectionPrice,default = "Boeing"}'
+                android:textColor="@color/lightdarkwhite"
+                android:textSize="@dimen/_20sp"
+                android:layout_marginBottom="@dimen/_16dp"
+                android:fontFamily="@font/roboto_slab_regular"
+                android:layout_marginStart="@dimen/_24dp"
+                android:layout_marginEnd="@dimen/_24dp"
+                android:layout_height="wrap_content"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

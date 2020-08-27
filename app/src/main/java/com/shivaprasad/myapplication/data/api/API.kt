@@ -1,5 +1,6 @@
-package com.shivaprasad.myapplication
+package com.shivaprasad.myapplication.data.api
 
+import com.shivaprasad.myapplication.data.model.ResponceData
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Response
@@ -17,7 +18,7 @@ interface API {
     suspend fun getData(): Response<ResponceData.Responce>
 
     companion object{
-        operator fun invoke(): API{
+        operator fun invoke(): API {
 
 
             val logging = HttpLoggingInterceptor()

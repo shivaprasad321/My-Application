@@ -1,4 +1,4 @@
-package com.shivaprasad.myapplication
+package com.shivaprasad.myapplication.data.api
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
